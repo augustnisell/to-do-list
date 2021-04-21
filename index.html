@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -12,9 +12,22 @@
     </script>
     <script src="js/application.js"></script>
 
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
   </head>
   <body>
   	<!-- https://altcademy-to-do-list-api.herokuapp.com/ -->
+    <h1>Todos</h1>
+    <input type="text" id="newTask" placeholder="What needs to get done?" />
+    <div class="toDoItem"><span class="checkCompleteButton"></span>Laundry</div>
+    <div class="toDoItem"><span class="checkCompleteButton"></span>Dishes</div>
+    <div id="toDoSummary">
+      <div>2 items left</div>
+      <div id="itemFilterMenu">
+        <span>All</span> | 
+        <span>Active</span> | 
+        <span>Completed</span>
+      </div>
+    </div>
   </body>
 </html>
