@@ -121,7 +121,7 @@ h1 {
 #toDoSummary {
 	text-align: left;
 	width: 600px;
-	height: 30px;
+	height: 35px;
 	margin: auto;
 	font-size: 14px;
 	padding: 6px;
@@ -137,4 +137,23 @@ h1 {
 #itemFilterMenu {
 	text-align: right;
 	margin-left: auto;
+}
+
+#itemFilterMenu > button {
+	width: 85px;
+	border-radius: 5px;
+}
+
+#itemFilterMenu > button:hover {
+	background-color: #bbb;
+	color: #fff;
+}
+
+.selected {
+	background-color: #bbb;
+	color: #fff;
+}
+
+.hidden {
+	display: none;
 }

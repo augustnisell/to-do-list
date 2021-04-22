@@ -10,7 +10,7 @@ var loadToDos = function() {
 	    	if (task['completed']) {
 	    		var completionStatus = ' completed';
 	    	} else {
-	    		var completionStatus = ''
+	    		var completionStatus = ' active'
 	    	}
 		    $('#toDoList').append(
 			  	'<div class="toDoItem' + completionStatus + '" id="' + task['id'] +'">' +
@@ -52,7 +52,7 @@ $(document).ready(function () {
 		  }),
 		  success: function (response, textStatus) {
         $('#toDoList').append(
-			  	'<div class="toDoItem" id="' + response.task['id'] + '">' +
+			  	'<div class="toDoItem active" id="' + response.task['id'] + '">' +
 			  		'<span class="checkCompleteButton"></span>' +
 			      '<p>' + newToDo + '</p>' +
 			      '<span class="removeButton">x</span>' +
@@ -81,6 +81,7 @@ $(document).ready(function () {
 			  }),
 			  success: function (response, textStatus) {
 	        $('#' + taskId).toggleClass('completed');
+	        $('#' + taskId).toggleClass('active');
 	    		activeToDoItems();
 			  },
 			  error: function (request, textStatus, errorMessage) {
@@ -100,6 +101,7 @@ $(document).ready(function () {
 			  }),
 			  success: function (response, textStatus) {
 	        $('#' + taskId).toggleClass('completed');
+	        $('#' + taskId).toggleClass('active');
 	    		activeToDoItems();
 			  },
 			  error: function (request, textStatus, errorMessage) {
@@ -122,5 +124,31 @@ $(document).ready(function () {
 		    console.log(errorMessage);
 		  }
 		});
+  });
+
+  $(document).on('click', '#allToDos', function (event) {
+  	$('.toDoItem').removeClass('hidden');
+
+  	$('#allToDos').addClass('selected');
+  	$('#activeToDos').removeClass('selected');
+  	$('#completedToDos').removeClass('selected');
+  });
+
+  $(document).on('click', '#activeToDos', function (event) {
+  	$('.completed').addClass('hidden');
+  	$('.active').removeClass('hidden');
+
+  	$('#allToDos').removeClass('selected');
+  	$('#activeToDos').addClass('selected');
+  	$('#completedToDos').removeClass('selected');
+  });
+
+  $(document).on('click', '#completedToDos', function (event) {
+  	$('.active').addClass('hidden');
+  	$('.completed').removeClass('hidden');
+
+  	$('#allToDos').removeClass('selected');
+  	$('#activeToDos').removeClass('selected');
+  	$('#completedToDos').addClass('selected');
   });
 });

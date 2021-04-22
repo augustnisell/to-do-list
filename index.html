@@ -16,17 +16,16 @@
     <link href="css/custom.css" rel="stylesheet">
   </head>
   <body>
-  	<!-- https://altcademy-to-do-list-api.herokuapp.com/ -->
     <h1>Todos</h1>
-    <form id="newTaskForm"><input type="text" id="newTask" placeholder="What needs to get done?" /></form>
+    <form id="newTaskForm"><input type="text" id="newTask" placeholder="What needs to get done?" autocomplete="off" /></form>
     <div id="toDoList">
     </div>
     <div id="toDoSummary">
       <div id="activeToDoCount">2 items left</div>
       <div id="itemFilterMenu">
-        <span id="allToDos">All</span> | 
-        <span id="activeToDos">Active</span> | 
-        <span id="completedToDos">Completed</span>
+        <button id="allToDos" class="selected">All</button> | 
+        <button id="activeToDos">Active</button> | 
+        <button id="completedToDos">Completed</button>
       </div>
     </div>
   </body>
